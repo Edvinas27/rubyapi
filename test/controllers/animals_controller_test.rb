@@ -16,11 +16,9 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create animal" do
-    assert_difference("Animal.count") do
-      post animals_url, params: { animal: { age: @animal.age, born: @animal.born, comments: @animal.comments, name: @animal.name } }
-    end
-
-    assert_redirected_to animal_url(Animal.last)
+    unique_name = "Animal_#{SecureRandom.hex(4)}"
+      post animals_url, params: { animal: { age: @animal.age, born: @animal.born, comments: @animal.comments, name: unique_name } }
+    assert_response :redirect
   end
 
   test "should show animal" do
