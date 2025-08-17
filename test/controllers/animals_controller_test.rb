@@ -2,6 +2,7 @@ require "test_helper"
 
 class AnimalsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    Animal.delete_all
     @animal = animals(:one)
   end
 
