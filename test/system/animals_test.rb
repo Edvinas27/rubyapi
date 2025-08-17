@@ -40,7 +40,7 @@ class AnimalsTest < ApplicationSystemTestCase
 
   test "should destroy Animal" do
     visit animal_url(@animal)
-    click_on "Destroy this animal", match: :first
+    click_on "Delete this animal", match: :first
 
     assert_text "Animal was successfully destroyed"
   end
