@@ -1,0 +1,30 @@
+
+<div id="<%= dom_id animal %>">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Born</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><%= animal.id %></td>
+      <td>
+        <%= link_to animal.name, animal_path(animal) %>
+      </td>
+      <td><%= animal.age %></td>
+      <td><%= animal.born %></td>
+      <td><%= animal.comments %></td>
+      <td class="d-flex align-items-center gap-2">
+        <%= button_to "Delete", animal_path(animal), method: :delete, class:"btn btn-danger"%>
+        <%= link_to "Edit", edit_animal_path(animal), class:"btn btn-primary" %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

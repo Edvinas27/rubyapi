@@ -1,0 +1,33 @@
+<%= form_with(model: animal) do |form| %>
+  <% if animal.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+
+      <ul>
+        <% animal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="mb-3">
+      <%= form.text_field :name, class:"form-control", placeholder: "Name"%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.number_field :age, class:"form-control", placeholder: "Age"%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.date_field :born, class:"form-control"%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.textarea :comments, class:"form-control", rows: 3, placeholder: "Comments"%>
+    </div>
+
+    <div>
+      <%= form.submit class: "btn btn-success"%>
+    </div>
+<% end %>
