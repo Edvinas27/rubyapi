@@ -2,7 +2,6 @@ require "test_helper"
 
 class AnimalsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    Animal.delete_all
     @animal = animals(:one)
   end
 
@@ -17,9 +16,10 @@ class AnimalsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create animal" do
-    unique_name = "Animal_#{SecureRandom.hex(4)}"
-      post animals_url, params: { animal: { age: @animal.age, born: @animal.born, comments: @animal.comments, name: unique_name } }
-    assert_response :redirect
+    assert_difference("Animal.count") do
+      post animals_url, params: { animal: { age: @animal.age, born: @animal.born, comments: @animal.comments, name: @animal.name } }
+    end
+    assert_redirected_to animal_url(Animal.last)
   end
 
   test "should show animal" do
