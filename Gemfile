@@ -10,6 +10,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "bootstrap"
 gem "sassc-rails"
+gem "devise", "~> 4.9", ">= 4.9.4"
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

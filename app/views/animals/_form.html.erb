@@ -1,16 +1,4 @@
 <%= form_with(model: animal) do |form| %>
-  <% if animal.errors.any? %>
-    <div class="alert alert-danger">
-      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
-
-      <ul>
-        <% animal.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
     <div class="mb-3">
       <%= form.text_field :name, class:"form-control", placeholder: "Name"%>
     </div>
